@@ -1,6 +1,6 @@
 {
   "name": "@balerion/admin",
-  "version": "5.11.1",
+  "version": "0.0.0",
   "description": "Balerion Admin",
   "repository": {
     "type": "git",
@@ -79,10 +79,10 @@
     "watch": "run -T rollup -c -w"
   },
   "dependencies": {
-    "@balerion/permissions": "5.11.1",
-    "@balerion/types": "5.11.1",
-    "@balerion/typescript-utils": "5.11.1",
-    "@balerion/utils": "5.11.1",
+    "@balerion/permissions": "0.0.0",
+    "@balerion/types": "0.0.0",
+    "@balerion/typescript-utils": "0.0.0",
+    "@balerion/utils": "0.0.0",
     "@casl/ability": "6.5.0",
     "@internationalized/date": "3.5.4",
     "@radix-ui/react-context": "1.0.1",
@@ -143,8 +143,8 @@
     "zod": "^3.22.4"
   },
   "devDependencies": {
-    "@balerion/admin-test-utils": "5.11.1",
-    "@balerion/data-transfer": "5.11.1",
+    "@balerion/admin-test-utils": "0.0.0",
+    "@balerion/data-transfer": "0.0.0",
     "@types/codemirror5": "npm:@types/codemirror@^5.60.15",
     "@types/fs-extra": "11.0.4",
     "@types/invariant": "2.2.36",
@@ -171,7 +171,7 @@
     "vite-plugin-dts": "^4.3.0"
   },
   "peerDependencies": {
-    "@balerion/data-transfer": "^5.0.0",
+    "@balerion/data-transfer": "0.0.0",
     "react": "^17.0.0 || ^18.0.0",
     "react-dom": "^17.0.0 || ^18.0.0",
     "react-router-dom": "^6.0.0",

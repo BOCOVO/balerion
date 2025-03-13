@@ -1,6 +1,6 @@
 {
   "name": "@balerion/generators",
-  "version": "5.11.1",
+  "version": "0.0.0",
   "description": "Interactive API generator.",
   "keywords": [
     "balerion",
@@ -48,8 +48,8 @@
     "watch": "run -T rollup -c -w"
   },
   "dependencies": {
-    "@balerion/typescript-utils": "5.11.1",
-    "@balerion/utils": "5.11.1",
+    "@balerion/typescript-utils": "0.0.0",
+    "@balerion/utils": "0.0.0",
     "@sindresorhus/slugify": "1.1.0",
     "chalk": "4.1.2",
     "copyfiles": "2.4.1",

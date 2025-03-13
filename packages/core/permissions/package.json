@@ -1,6 +1,6 @@
 {
   "name": "@balerion/permissions",
-  "version": "5.11.1",
+  "version": "0.0.0",
   "description": "Balerion's permission layer.",
   "repository": {
     "type": "git",
@@ -38,7 +38,7 @@
     "watch": "run -T rollup -c -w"
   },
   "dependencies": {
-    "@balerion/utils": "5.11.1",
+    "@balerion/utils": "0.0.0",
     "@casl/ability": "6.5.0",
     "lodash": "4.17.21",
     "qs": "6.11.1",

@@ -1,6 +1,6 @@
 {
   "name": "@balerion/content-manager",
-  "version": "5.11.1",
+  "version": "0.0.0",
   "description": "A powerful UI to easily manage your data.",
   "repository": {
     "type": "git",
@@ -61,8 +61,8 @@
     "watch": "run -T rollup -c -w"
   },
   "dependencies": {
-    "@balerion/types": "5.11.1",
-    "@balerion/utils": "5.11.1",
+    "@balerion/types": "0.0.0",
+    "@balerion/utils": "0.0.0",
     "@radix-ui/react-toolbar": "1.0.4",
     "@reduxjs/toolkit": "1.9.7",
     "@sindresorhus/slugify": "1.1.0",
@@ -102,8 +102,8 @@
     "yup": "0.32.9"
   },
   "devDependencies": {
-    "@balerion/admin": "5.11.1",
-    "@balerion/database": "5.11.1",
+    "@balerion/admin": "0.0.0",
+    "@balerion/database": "0.0.0",
     "@testing-library/react": "15.0.7",
     "@types/jest": "29.5.2",
     "@types/lodash": "^4.14.191",
@@ -116,7 +116,7 @@
     "styled-components": "6.1.8"
   },
   "peerDependencies": {
-    "@balerion/admin": "^5.0.0",
+    "@balerion/admin": "0.0.0",
     "react": "^17.0.0 || ^18.0.0",
     "react-dom": "^17.0.0 || ^18.0.0",
     "react-router-dom": "^6.0.0",

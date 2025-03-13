@@ -1,6 +1,6 @@
 {
   "name": "@balerion/core",
-  "version": "5.11.1",
+  "version": "0.0.0",
   "description": "Core of Balerion",
   "homepage": "https://balerion.io",
   "bugs": {
@@ -53,14 +53,14 @@
     "test:unit:watch": "run -T jest --watch"
   },
   "dependencies": {
-    "@balerion/admin": "5.11.1",
-    "@balerion/database": "5.11.1",
-    "@balerion/generators": "5.11.1",
-    "@balerion/logger": "5.11.1",
-    "@balerion/permissions": "5.11.1",
-    "@balerion/types": "5.11.1",
-    "@balerion/typescript-utils": "5.11.1",
-    "@balerion/utils": "5.11.1",
+    "@balerion/admin": "0.0.0",
+    "@balerion/database": "0.0.0",
+    "@balerion/generators": "0.0.0",
+    "@balerion/logger": "0.0.0",
+    "@balerion/permissions": "0.0.0",
+    "@balerion/types": "0.0.0",
+    "@balerion/typescript-utils": "0.0.0",
+    "@balerion/utils": "0.0.0",
     "@koa/cors": "5.0.0",
     "@koa/router": "12.0.2",
     "@paralleldrive/cuid2": "2.2.2",

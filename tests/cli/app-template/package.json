@@ -1,6 +1,6 @@
 {
   "name": "@balerion/cli-test-app",
-  "version": "0.1.0",
+  "version": "0.0.0",
   "private": true,
   "description": "E2E template application",
   "license": "MIT",
@@ -11,8 +11,8 @@
     "balerion": "balerion"
   },
   "dependencies": {
-    "@balerion/plugin-users-permissions": "latest",
-    "@balerion/balerion": "latest",
+    "@balerion/plugin-users-permissions": "0.0.0",
+    "@balerion/balerion": "0.0.0",
     "better-sqlite3": "11.3.0",
     "react": "18.3.1",
     "react-dom": "18.3.1",

@@ -1,6 +1,6 @@
 {
   "name": "@balerion/cloud-cli",
-  "version": "5.11.1",
+  "version": "0.0.0",
   "description": "Commands to interact with the Balerion Cloud",
   "keywords": [
     "balerion",
@@ -47,7 +47,7 @@
     "watch": "run -T rollup -c -w"
   },
   "dependencies": {
-    "@balerion/utils": "5.11.1",
+    "@balerion/utils": "0.0.0",
     "axios": "1.8.2",
     "boxen": "5.1.2",
     "chalk": "4.1.2",

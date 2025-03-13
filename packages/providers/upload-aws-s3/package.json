@@ -1,6 +1,6 @@
 {
   "name": "@balerion/provider-upload-aws-s3",
-  "version": "5.11.1",
+  "version": "0.0.0",
   "description": "AWS S3 provider for balerion upload",
   "keywords": [
     "upload",

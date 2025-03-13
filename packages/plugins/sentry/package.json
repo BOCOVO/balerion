@@ -1,6 +1,6 @@
 {
   "name": "@balerion/plugin-sentry",
-  "version": "5.11.1",
+  "version": "0.0.0",
   "description": "Send Balerion error events to Sentry",
   "repository": {
     "type": "git",
@@ -58,14 +58,14 @@
     "@strapi/icons": "2.0.0-rc.18"
   },
   "devDependencies": {
-    "@balerion/balerion": "5.11.1",
+    "@balerion/balerion": "0.0.0",
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "react-router-dom": "6.22.3",
     "styled-components": "6.1.8"
   },
   "peerDependencies": {
-    "@balerion/balerion": "^5.0.0",
+    "@balerion/balerion": "0.0.0",
     "react": "^17.0.0 || ^18.0.0",
     "react-dom": "^17.0.0 || ^18.0.0",
     "react-router-dom": "^6.0.0",

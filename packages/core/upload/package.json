@@ -1,6 +1,6 @@
 {
   "name": "@balerion/upload",
-  "version": "5.11.1",
+  "version": "0.0.0",
   "description": "Makes it easy to upload images and files to your Balerion Application.",
   "license": "SEE LICENSE IN LICENSE",
   "author": {
@@ -60,8 +60,8 @@
     "watch": "run -T rollup -c -w"
   },
   "dependencies": {
-    "@balerion/provider-upload-local": "5.11.1",
-    "@balerion/utils": "5.11.1",
+    "@balerion/provider-upload-local": "0.0.0",
+    "@balerion/utils": "0.0.0",
     "@mux/mux-player-react": "3.1.0",
     "@strapi/design-system": "2.0.0-rc.18",
     "@strapi/icons": "2.0.0-rc.18",
@@ -86,8 +86,8 @@
     "yup": "0.32.9"
   },
   "devDependencies": {
-    "@balerion/admin": "5.11.1",
-    "@balerion/types": "5.11.1",
+    "@balerion/admin": "0.0.0",
+    "@balerion/types": "0.0.0",
     "@testing-library/dom": "10.1.0",
     "@testing-library/react": "15.0.7",
     "@testing-library/user-event": "14.5.2",
@@ -106,7 +106,7 @@
     "styled-components": "6.1.8"
   },
   "peerDependencies": {
-    "@balerion/admin": "^5.0.0",
+    "@balerion/admin": "0.0.0",
     "react": "^17.0.0 || ^18.0.0",
     "react-dom": "^17.0.0 || ^18.0.0",
     "react-router-dom": "^6.0.0",

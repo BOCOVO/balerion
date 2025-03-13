@@ -1,6 +1,6 @@
 {
   "name": "@balerion/provider-upload-local",
-  "version": "5.11.1",
+  "version": "0.0.0",
   "description": "Local provider for balerion upload",
   "keywords": [
     "upload",
@@ -45,11 +45,11 @@
     "watch": "run -T rollup -c -w"
   },
   "dependencies": {
-    "@balerion/utils": "5.11.1",
+    "@balerion/utils": "0.0.0",
     "fs-extra": "11.2.0"
   },
   "devDependencies": {
-    "@balerion/types": "5.11.1",
+    "@balerion/types": "0.0.0",
     "@types/fs-extra": "11.0.4",
     "@types/jest": "29.5.2",
     "eslint-config-custom": "5.11.1",

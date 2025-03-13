@@ -9,10 +9,10 @@
     "deploy": "balerion deploy"
   },
   "dependencies": {
-    "@balerion/plugin-cloud": "^5.0.0",
-    "@balerion/plugin-graphql": "^5.0.0",
-    "@balerion/plugin-users-permissions": "^5.0.0",
-    "@balerion/balerion": "^5.0.0",
+    "@balerion/plugin-cloud": "0.0.0",
+    "@balerion/plugin-graphql": "0.0.0",
+    "@balerion/plugin-users-permissions": "0.0.0",
+    "@balerion/balerion": "0.0.0",
     "lodash": "^4.17.19",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
