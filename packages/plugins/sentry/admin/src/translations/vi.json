@@ -1,0 +1,5 @@
+{
+  "plugin.description.long": "Gửi lỗi Balerion lên Sentry.",
+  "plugin.description.short": "Gửi lỗi Balerion lên Sentry.",
+  "plugin.name": "Sentry"
+}

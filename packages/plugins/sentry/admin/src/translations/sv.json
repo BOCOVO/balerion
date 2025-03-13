@@ -1,0 +1,5 @@
+{
+  "plugin.description.long": "Skicka felkoder från balerion som Sentry-events.",
+  "plugin.description.short": "Skicka felkoder från balerion som Sentry-events.",
+  "plugin.name": "Sentry"
+}

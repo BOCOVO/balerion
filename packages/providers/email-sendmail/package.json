@@ -1,0 +1,58 @@
+{
+  "name": "@balerion/provider-email-sendmail",
+  "version": "5.11.1",
+  "description": "Sendmail provider for balerion email",
+  "keywords": [
+    "email",
+    "balerion"
+  ],
+  "homepage": "https://balerion.io",
+  "bugs": {
+    "url": "https://github.com/balerion/balerion/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/balerion/balerion.git"
+  },
+  "license": "SEE LICENSE IN LICENSE",
+  "author": {
+    "name": "Balerion Solutions SAS",
+    "email": "hi@balerion.io",
+    "url": "https://balerion.io"
+  },
+  "maintainers": [
+    {
+      "name": "Balerion Solutions SAS",
+      "email": "hi@balerion.io",
+      "url": "https://balerion.io"
+    }
+  ],
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "source": "./src/index.ts",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist/"
+  ],
+  "scripts": {
+    "build": "run -T npm-run-all clean --parallel build:code build:types",
+    "build:code": "run -T  rollup -c",
+    "build:types": "run -T tsc -p tsconfig.build.json --emitDeclarationOnly",
+    "clean": "run -T rimraf ./dist",
+    "lint": "run -T eslint .",
+    "watch": "run -T rollup -c -w"
+  },
+  "dependencies": {
+    "@balerion/utils": "5.11.1",
+    "sendmail": "^1.6.1"
+  },
+  "devDependencies": {
+    "@types/sendmail": "1.4.4",
+    "eslint-config-custom": "5.11.1",
+    "tsconfig": "5.11.1"
+  },
+  "engines": {
+    "node": ">=18.0.0 <=22.x.x",
+    "npm": ">=6.0.0"
+  }
+}

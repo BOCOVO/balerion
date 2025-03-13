@@ -1,0 +1,32 @@
+version: '3'
+
+services:
+  postgres:
+    image: postgres
+    restart: always
+    volumes:
+      - pgdata_test:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: balerion
+      POSTGRES_PASSWORD: balerion
+      POSTGRES_DB: balerion_test
+    ports:
+      - '5432:5432'
+
+  mysql:
+    image: mysql:8
+    restart: always
+    environment:
+      MYSQL_DATABASE: balerion_test
+      MYSQL_USER: balerion
+      MYSQL_PASSWORD: balerion
+      MYSQL_ROOT_HOST: '%'
+      MYSQL_ROOT_PASSWORD: balerion
+    volumes:
+      - mysqldata_test:/var/lib/mysql
+    ports:
+      - '3306:3306'
+
+volumes:
+  pgdata_test:
+  mysqldata_test:

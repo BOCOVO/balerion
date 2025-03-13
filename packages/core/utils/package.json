@@ -1,0 +1,73 @@
+{
+  "name": "@balerion/utils",
+  "version": "5.11.1",
+  "description": "Shared utilities for the Balerion packages",
+  "keywords": [
+    "balerion",
+    "utils"
+  ],
+  "homepage": "https://balerion.io",
+  "bugs": {
+    "url": "https://github.com/balerion/balerion/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/balerion/balerion.git"
+  },
+  "license": "SEE LICENSE IN LICENSE",
+  "author": {
+    "name": "Balerion Solutions SAS",
+    "email": "hi@balerion.io",
+    "url": "https://balerion.io"
+  },
+  "maintainers": [
+    {
+      "name": "Balerion Solutions SAS",
+      "email": "hi@balerion.io",
+      "url": "https://balerion.io"
+    }
+  ],
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "source": "./src/index.ts",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist/"
+  ],
+  "scripts": {
+    "build": "run -T npm-run-all clean --parallel build:code build:types",
+    "build:code": "run -T  rollup -c",
+    "build:types": "run -T tsc -p tsconfig.build.json --emitDeclarationOnly",
+    "clean": "run -T rimraf ./dist",
+    "lint": "run -T eslint .",
+    "test:ts": "run -T tsc --noEmit",
+    "test:unit": "run -T jest",
+    "test:unit:watch": "run -T jest --watch",
+    "watch": "run -T  rollup -c -w"
+  },
+  "dependencies": {
+    "@sindresorhus/slugify": "1.1.0",
+    "date-fns": "2.30.0",
+    "execa": "5.1.1",
+    "http-errors": "2.0.0",
+    "lodash": "4.17.21",
+    "node-machine-id": "1.1.12",
+    "p-map": "4.0.0",
+    "preferred-pm": "3.1.2",
+    "yup": "0.32.9",
+    "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "@types/http-errors": "2.0.4",
+    "@types/koa": "2.13.4",
+    "@types/node": "18.19.24",
+    "eslint-config-custom": "5.11.1",
+    "koa": "2.15.4",
+    "koa-body": "6.0.1",
+    "tsconfig": "5.11.1"
+  },
+  "engines": {
+    "node": ">=18.0.0 <=22.x.x",
+    "npm": ">=6.0.0"
+  }
+}

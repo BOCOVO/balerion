@@ -1,0 +1,18 @@
+'use strict';
+
+/**
+ * `{{ id }}` policy
+ */
+
+module.exports = (policyContext, config, { balerion }) => {
+    // Add your own logic here.
+    balerion.log.info('In {{ id }} policy.');
+
+    const canDoSomething = true;
+
+    if (canDoSomething) {
+      return true;
+    }
+
+    return false;
+};

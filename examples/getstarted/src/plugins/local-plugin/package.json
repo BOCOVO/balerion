@@ -1,0 +1,11 @@
+{
+  "name": "balerion-plugin-local-plugin",
+  "version": "0.0.0",
+  "private": true,
+  "description": "This is the description of my plugin.",
+  "balerion": {
+    "name": "local-plugin",
+    "description": "This plugin is linked as a local plugin",
+    "kind": "plugin"
+  }
+}

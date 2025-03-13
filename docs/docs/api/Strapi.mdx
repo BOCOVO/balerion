@@ -1,0 +1,661 @@
+---
+title: Balerion (WIP)
+slug: /api/Balerion
+tags:
+  - class
+  - public
+  - global
+
+toc_min_heading_level: 2
+toc_max_heading_level: 3
+---
+
+import Type from '@site/docs/api/components/type';
+
+# Balerion
+
+:::info
+
+Current state: **Stable**
+
+:::
+
+The Balerion class is the main object used in Balerion projects.
+An instance of Balerion class is available as a global in any Balerion project: `global.balerion`.
+
+## Class: Balerion
+
+### `new Balerion(opts)`
+
+- `opts`: <Type>Object</Type> Options that can be used on Balerion startup
+  - `autoReload`: <Type>Boolean</Type> **Default:** true
+    - If false, deactivate auto reload
+    - If you modify any file in your Balerion project, it reloads your nodejs app
+    - If any content-type is changed, it will reload the nodejs app
+  - `serveAdminPanel`: <Type>Boolean</Type> **Default:** true
+    - Should the admin panel be loaded and serve as a web client
+    - The admin panel build will not be delivered if false
+  - `appDir`: <Type>String</Type> **Default:** `process.cwd()`
+    - The directory relative or absolute path where Balerion will write every file (schemas, generated APIs, controllers or services)
+  - `distDir`: <Type>String</Type> **Default:** appDir value
+    - The directory relative or absolute path where Balerion will read configurations, schemas and any compiled code
+
+Instances of the Balerion class can be created using the new keyword.
+
+Balerion extends the [Container](./container) class.
+
+```javascript
+const balerionInstance = new Balerion();
+```
+
+### `balerion.dirs`
+
+- <Type>Object</Type>
+
+Stored paths of file system.
+
+- `dirs.dist`: <Type>[BalerionPathObject](#balerionpathobject)</Type>
+  - Build folder
+- `dirs.app`: <Type>[BalerionPathObject](#balerionpathobject)</Type>
+  - Sources folder
+- `dirs.static`: <Type>Object</Type> Define path to directories involving web client display
+  - `public`: <Type>String</Type> Path to the folder to serve publicly (like files, images, etc..)
+
+#### BalerionPathObject
+
+- <Type>Object</Type>
+
+A set of paths to specific Balerion project parts.
+
+- `root`: <Type>String</Type> Root path
+- `src`: <Type>String</Type> Sources route path to project files
+- `api`: <Type>String</Type> Path to the folder containing project developers' API files (content-types, controllers, services, routes, etc..)
+- `components`: <Type>String</Type> Path to the folder containing project developers' components
+- `policies`: <Type>String</Type> Path to the folder where the Balerion project developers' policies are stored
+  - A set of functions that check the state of the data and prevent the access to the API accordingly
+- `middlewares`: <Type>String</Type> Path to the folder where the Balerion project developers' middlewares are stored
+  - A set of function that wrap around routes and requests
+- `config`: <Type>String</Type> Path to the folder containing project developers' config files
+
+### `balerion.isLoaded`
+
+- <Type>Boolean</Type>
+
+  - `true`: Everything (all `register` and `bootstrap` functions available in your balerion project) has been loaded
+  - `false`: There is something loading
+
+Note: `register` functions are called before the `bootstrap` functions.
+
+### `balerion.reload()`
+
+Reload the app.
+
+This function defines itself at the construction of the Balerion class.
+
+### `balerion.server`
+
+- [<Type>BalerionServer</Type>](./balerion-server)
+
+Balerion server object.
+
+### `balerion.fs`
+
+- [<Type>BalerionFS</Type>](BalerionFS)
+
+Wrapper around [FS NodeJS module](https://nodejs.org/docs/latest-v18.x/api/fs.html).
+
+### `balerion.eventHub`
+
+- [<Type>EventHub</Type>](EventHub)
+
+The `balerion.eventHub` object is used to manipulate events within a Balerion project. It is an instance of the built-in EventEmitter class from Node.js, which provides a simple way to emit and listen for events.
+
+The `balerion.eventHub` object is created using the `createEventHub()` function in the [EventHub](EventHub) module of the Balerion core. This function returns a new instance of the EventHub class, which extends the EventEmitter class and adds some additional functionality specific to Balerion.
+
+#### Examples:
+
+```javascript
+// Listen for a 'user.updated' event and log the data
+balerion.eventHub.on('user.updated', (data) => {
+  console.log(`User ${data.id} has been updated`);
+});
+
+// Emit a 'user.created' event with some data
+balerion.eventHub.emit('user.created', { username: 'johndoe', email: 'johndoe@example.com' });
+```
+
+In this example, we are emitting a `user.created` event with some data attached to it, and then listening for a user.updated event and logging the data. These events can be used to trigger actions within the Balerion application or to communicate with external systems.
+
+For more information on how to use the EventEmitter class and its methods, see the [Node.js documentation](ttps://nodejs.org/docs/latest-v18.x/api/events.html#class-eventemitter).
+
+### `balerion.startupLogger`
+
+- [<Type>StartupLogger</Type>](StartupLogger)
+
+Object containing predefined logger functions. Used for Balerion startup. (do not use as a logger elsewhere)
+
+### `balerion.log`
+
+- [<Type>Winston</Type>](https://github.com/winstonjs/winston#creating-your-own-logger)
+
+A logger provided by Balerion that uses the Winston logging library. It is the result of calling the `winston.createLogger()` function with the configuration defined by the user of the Balerion application.
+
+The logger provides various methods for logging messages at different levels of severity, including error, warn, info, verbose, debug, and silly. The logging level can be set via the configuration to control which messages are logged.
+
+#### Examples
+
+```javascript
+// Log an error message
+balerion.log.error('Failed to start server', { error: err });
+
+// Log a warning message
+balerion.log.warn('Server is running in development mode');
+
+// Log an informational message
+balerion.log.info(`Server started on port ${PORT}`);
+
+// Log a verbose message
+balerion.log.verbose('Application state', { user: currentUser });
+
+// Log a debug message
+balerion.log.debug('API request received', { method: req.method, path: req.path });
+
+// Log a silly message
+balerion.log.silly('Entered loop', { count: i });
+```
+
+In these examples, we are logging messages at different levels of severity, including error, warn, info, verbose, debug, and silly. We are also passing in metadata as an object in the second parameter of each logging method.
+
+The messages logged by balerion.log will be output according to the logging configuration set by the user of the Balerion application. This configuration determines which messages are logged and where they are logged (e.g. console, file, etc.).
+
+### `balerion.cron`
+
+- [<Type>CronService</Type>](Cron)
+
+Module to schedule cron jobs for Balerion project. It is an instance of a custom Cron object.
+
+### `balerion.telemetry`
+
+- [<Type>TelemetryService</Type>](Telemetry)
+
+The `balerion.telemetry` property provides access to the telemetry service instance. This service collects anonymous usage data about your Balerion application to help the Balerion team improve the product.
+
+By default, the telemetry service is enabled, but you can disable it by setting the telemetryDisabled property to true in your application's package.json file, or by setting the `BALERION_TELEMETRY_DISABLED` environment variable to true. You can also disable telemetry programmatically by setting the isDisabled property of the `balerion.telemetry` instance to true.
+
+### `balerion.requestContext`
+
+- <Type>Object</Type> Context Storage
+
+  - `run(store, cb)`: <Type>Function</Type>
+    - `store`: <Type>Any</Type> Value that should be retrieved
+    - `cb`: <Type>Function</Type> Callback
+  - `get()` <Type>Function</Type>
+
+The request context stores the ctx object from KoaJS on each request. This allows users to have access to the context from anywhere through the Balerion instance.
+
+### `balerion.customFields`
+
+- <Type>Object</Type>
+
+  - `register(customField)`: <Type>Function</Type> Register a new custom field
+
+This property is a shortcut to `balerion.get('custom-fields').add(customField)`.
+
+#### Examples
+
+```javascript
+balerion.customFields.register({
+  name: 'color',
+  plugin: 'color-picker',
+  type: 'string',
+});
+```
+
+### `balerion.config`
+
+- <Type>Object</Type>
+
+Shortcut to `balerion.get('config')`.
+
+See the [config container](#config).
+
+### `balerion.services`
+
+- <Type>Object[]</Type>
+
+Shortcut to `balerion.get('services').getAll()`.
+
+See the [services' container](#services).
+
+### `balerion.service(uid)`
+
+- `uid`: <Type>String</Type>
+
+Shortcut to `balerion.get('services').get(uid)`.
+
+See the [services' container](#services).
+
+### `balerion.controllers`
+
+- <Type>Object[]</Type>
+
+Shortcut to `balerion.get('controllers').getAll()`.
+
+See the [controllers' container](#controllers).
+
+### `balerion.controller(uid)`
+
+- `uid`: <Type>String</Type>
+
+Shortcut to `balerion.get('controllers').get(uid)`.
+
+See the [controllers' container](#controllers).
+
+### `balerion.contentTypes`
+
+- <Type>Object[]</Type>
+
+Shortcut to `balerion.get('content-types').getAll()`.
+
+See the [content-types' container](#content-types).
+
+### `balerion.contentType(name)`
+
+- `name`: <Type>String</Type>
+
+Shortcut to `balerion.get('content-types').get(name)`.
+
+See the [content-types' container](#content-types).
+
+### `balerion.policies`
+
+- <Type>Object[]</Type>
+
+Shortcut to `balerion.get('policies').getAll()`.
+
+See the [policies' container](#policies).
+
+### `balerion.policy(name)`
+
+- `name`: <Type>String</Type>
+
+Shortcut to `balerion.get('policies').get(name)`.
+
+See the [policies' container](#policies).
+
+### `balerion.middlewares`
+
+- <Type>Object[]</Type>
+
+Shortcut to `balerion.get('middlewares').getAll()`.
+
+See the [middlewares container](#middlewares).
+
+### `balerion.middleware(name)`
+
+- `name`: <Type>String</Type>
+
+Shortcut to `balerion.get('middlewares').get(name)`.
+
+See the [middlewares container](#middlewares).
+
+### `balerion.plugins`
+
+- <Type>Object[]</Type>
+
+Shortcut to `balerion.get('plugins').getAll()`.
+
+See the [plugins' container](#plugins).
+
+### `balerion.plugin(name)`
+
+- `name`: <Type>String</Type>
+
+Shortcut to `balerion.get('plugins').get(name)`.
+
+See the [plugins' container](#plugins).
+
+### `balerion.hooks`
+
+- <Type>Object[]</Type>
+
+Shortcut to `balerion.get('hooks').getAll()`.
+
+See the [hooks' container](#hooks).
+
+### `balerion.hook(name)`
+
+- `name`: <Type>String</Type>
+
+Shortcut to `balerion.get('hooks').get(name)`.
+
+See the [hooks' container](#hooks).
+
+### `balerion.apis`
+
+- <Type>Object[]</Type>
+
+Shortcut to `balerion.get('apis').getAll()`.
+
+See the [apis container](#apis).
+
+### `balerion.api(name)`
+
+- `name`: <Type>String</Type>
+
+Shortcut to `balerion.get('apis').get(name)`.
+
+See the [apis container](#apis).
+
+### `balerion.auth`
+
+- <Type>Object</Type>
+
+Shortcut to `balerion.get('auth')`.
+
+See the [auth' container](#auth).
+
+### `balerion.contentAPI`
+
+- <Type>Object</Type>
+
+Shortcut to `balerion.get('content-api')`.
+
+See the [content-api container](#content-api).
+
+### `balerion.sanitizers`
+
+- <Type>Object</Type>
+
+Shortcut to `balerion.get('sanitizers')`.
+
+See the [sanitizers' container](#sanitizers).
+
+### `balerion.validators`
+
+- <Type>Object</Type>
+
+Shortcut to `balerion.get('validators')`.
+
+See the [validators' container](#validators).
+
+### `balerion.start()`
+
+- Returns: Promise
+
+:::info
+TODO
+:::
+
+### `balerion.destroy()`
+
+- Returns: Promise
+
+:::info
+TODO
+:::
+
+### `balerion.sendStartupTelemetry()`
+
+:::info
+TODO
+:::
+
+### `balerion.openAdmin({ isInitialized })`
+
+- Returns: Promise
+
+:::info
+TODO
+:::
+
+### `balerion.postListen()`
+
+- Returns: Promise
+
+:::info
+TODO
+:::
+
+### `balerion.listen()`
+
+- Returns: Promise
+
+:::info
+TODO
+:::
+
+### `balerion.stopWithError()`
+
+:::info
+TODO
+:::
+
+### `balerion.stop(exitCode)`
+
+:::info
+TODO
+:::
+
+### `balerion.loadAdmin()`
+
+- Returns: Promise
+
+:::info
+TODO
+:::
+
+### `balerion.loadPlugins()`
+
+- Returns: Promise
+
+:::info
+TODO
+:::
+
+### `balerion.loadPolicies()`
+
+- Returns: Promise
+
+:::info
+TODO
+:::
+
+### `balerion.loadAPIs()`
+
+- Returns: Promise
+
+:::info
+TODO
+:::
+
+### `balerion.loadComponents()`
+
+- Returns: Promise
+
+:::info
+TODO
+:::
+
+### `balerion.loadMiddlewares()`
+
+- Returns: Promise
+
+:::info
+TODO
+:::
+
+### `balerion.loadApp()`
+
+- Returns: Promise
+
+:::info
+TODO
+:::
+
+### `balerion.loadSanitizers()`
+
+- Returns: Promise
+
+:::info
+TODO
+:::
+
+### `balerion.registerInternalHooks()`
+
+:::info
+TODO
+:::
+
+### `balerion.register()`
+
+- Returns: Promise
+
+:::info
+TODO
+:::
+
+### `balerion.bootstrap()`
+
+- Returns: Promise
+
+:::info
+TODO
+:::
+
+### `balerion.load()`
+
+- Returns: Promise
+
+:::info
+TODO
+:::
+
+### `balerion.reload()`
+
+:::info
+TODO
+:::
+
+### `balerion.runLifecyclesFunctions()`
+
+- Returns: Promise
+
+:::info
+TODO
+:::
+
+### `balerion.getModel(uid)`
+
+- `uid`: <Type>String</Type>
+
+:::info
+TODO
+:::
+
+### `balerion.db.query(uid)`
+
+- `uid`: <Type>String</Type>
+
+:::info
+TODO
+:::
+
+## Balerion containers
+
+The balerion containers are accessible via `balerion.get('name-of-the-container')`.
+
+### `config`
+
+- <Type>Object</Type>
+
+  - `get(path, defaultValue)`: <Type>Function</Type>
+    - `path`: <Type>String</Type>
+    - `defaultValue`: <Type>Any</Type>
+    - Returns: <Type>Any</Type> - The value located at `path` or, if undefined, `defaultValue`.
+  - `set(path, value)`: <Type>Function</Type>
+    - `path`: <Type>String</Type> - Where the value should be stored
+    - `value`: <Type>Any</Type>
+  - `has(path)`: <Type>Function</Type>
+    - `path`: <Type>String</Type>
+    - Returns: <Type>Boolean</Type> - Does the `path` match a value stored in the config container.
+  - `launchedAt`: <Type>Number</Type> **Default:** `Date.now()`
+    Date in milliseconds when the server has started
+  - `serveAdminPanel`: <Type>Boolean</Type> **Default:** `true`
+    See [Balerion constructor](#new-balerionopts) options
+  - `autoReload`: <Type>Boolean</Type> **Default:** `false`
+    See [Balerion constructor](#new-balerionopts) options
+  - `environment`: <Type>String</Type> - process.env.NODE_ENV
+  - `uuid`: <Type>String</Type> - string extracted from `package.json` located in `balerion.uuid`
+  - `packageJsonBalerion`: <Type>Object</Type> - object extracted from `package.json` located in `balerion` (except uuid)
+  - `info`: <Type>Object</Type>
+    - everything stored in the `package.json`
+    - `balerion`: <Type>String</Type> - Current version of Balerion
+
+Every file stored under the `config` folder will be injected in this config container object.
+
+### `services`
+
+:::info
+TODO
+:::
+
+### `controllers`
+
+:::info
+TODO
+:::
+
+### `content-types`
+
+:::info
+TODO
+:::
+
+### `policies`
+
+:::info
+TODO
+:::
+
+### `plugins`
+
+:::info
+TODO
+:::
+
+### `hooks`
+
+:::info
+TODO
+:::
+
+### `apis`
+
+:::info
+TODO
+:::
+
+### `auth`
+
+:::info
+TODO
+:::
+
+### `content-api`
+
+:::info
+TODO
+:::
+
+### `sanitizers`
+
+:::info
+TODO
+:::
+
+### `validators`
+
+:::info
+TODO
+:::

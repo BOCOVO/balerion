@@ -1,0 +1,14 @@
+'use strict';
+
+/**
+ * `{{ name }}` middleware
+ */
+
+module.exports = (config, { balerion }) => {
+  // Add your own logic here.
+  return async (ctx, next) => {
+    balerion.log.info('In {{ name }} middleware.');
+
+    await next();
+  };
+};

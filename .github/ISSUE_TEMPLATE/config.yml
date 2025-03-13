@@ -1,0 +1,23 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Product Feature Request
+    url: https://feedback.balerion.io/feature-requests
+    about: Provide feedback to the Balerion team and ask for new features or enhancements!
+  - name: Documentation Bug Report
+    url: https://github.com/balerion/documentation/issues/new?assignees=&labels=type%3A+bug&projects=&template=BUG_REPORT.yml&title=%5BBug%5D%3A%20
+    about: Create a report to help us improve the Balerion documentation.
+  - name: Documentation Request
+    url: https://github.com/balerion/documentation/issues/new?assignees=&labels=type%3A+doc+request&projects=&template=DOC_REQUEST.yml&title=%5BRequest%5D%3A+
+    about: Create a request to add new information to the Balerion documentation.
+  - name: Balerion Plugin SDK Bug Report
+    url: https://github.com/balerion/sdk-plugin/issues/new?assignees=&labels=issue%3A+bug&projects=&template=BUG_REPORT.yml&title=%5Bbug%5D%3A+
+    about: Create a report to help us improve the Plugin SDK
+  - name: Balerion JS/TS SDK Bug Report
+    url: https://github.com/balerion/sdk-js/issues/new?assignees=&labels=issue%3A+bug%2Cstatus%3A+to+be+confirmed&projects=&template=BUG_REPORT.yml&title=%5Bbug%5D%3A+
+    about: Create a report to help us improve the JS/TS SDK
+  - name: Balerion Design System Bug Report
+    url: https://github.com/balerion/design-system/issues/new?assignees=&labels=issue%3A+bug%2Cstatus%3A+pending+reproduction&projects=&template=bug_report.yml&title=%5Bbug%5D%3A+
+    about: Create a report to help us improve the Design System
+  - name: Join the Community Discord
+    url: https://discord.balerion.io
+    about: Come and chat with other community members!

@@ -1,0 +1,13 @@
+{
+  "scripts": {
+    "build": "balerion build",
+    "deploy": "balerion deploy",
+    "develop": "balerion develop",
+    "dev": "balerion develop",
+    "console": "balerion console",
+    "start": "balerion start",
+    "balerion": "balerion",
+    "upgrade": "npx @balerion/upgrade latest",
+    "upgrade:dry": "npx @balerion/upgrade latest --dry"
+  }
+}

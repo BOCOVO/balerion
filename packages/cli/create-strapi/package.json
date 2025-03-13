@@ -1,0 +1,45 @@
+{
+  "name": "create-balerion",
+  "version": "5.11.1",
+  "description": "Generate a new Balerion application.",
+  "keywords": [
+    "create-balerion",
+    "create",
+    "new",
+    "generate",
+    "balerion"
+  ],
+  "homepage": "https://balerion.io",
+  "bugs": {
+    "url": "https://github.com/balerion/balerion/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/balerion/balerion.git"
+  },
+  "license": "SEE LICENSE IN LICENSE",
+  "author": {
+    "name": "Balerion Solutions SAS",
+    "email": "hi@balerion.io",
+    "url": "https://balerion.io"
+  },
+  "maintainers": [
+    {
+      "name": "Balerion Solutions SAS",
+      "email": "hi@balerion.io",
+      "url": "https://balerion.io"
+    }
+  ],
+  "main": "",
+  "bin": "./bin/index.js",
+  "files": [
+    "bin/"
+  ],
+  "dependencies": {
+    "create-balerion-app": "5.11.1"
+  },
+  "engines": {
+    "node": ">=18.0.0 <=22.x.x",
+    "npm": ">=6.0.0"
+  }
+}

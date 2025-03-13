@@ -1,0 +1,14 @@
+/**
+ * `{{ name }}` middleware
+ */
+
+import type { Core } from '@balerion/balerion';
+
+export default (config, { balerion }: { balerion: Core.Balerion }) => {
+  // Add your own logic here.
+  return async (ctx, next) => {
+    balerion.log.info('In {{ name }} middleware.');
+
+    await next();
+  };
+};

@@ -1,0 +1,61 @@
+{
+  "name": "@balerion/provider-email-mailgun",
+  "version": "5.11.1",
+  "description": "Mailgun provider for balerion email plugin",
+  "keywords": [
+    "email",
+    "balerion",
+    "mailgun"
+  ],
+  "homepage": "https://balerion.io",
+  "bugs": {
+    "url": "https://github.com/balerion/balerion/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/balerion/balerion.git"
+  },
+  "license": "SEE LICENSE IN LICENSE",
+  "author": {
+    "name": "Balerion Solutions SAS",
+    "email": "hi@balerion.io",
+    "url": "https://balerion.io"
+  },
+  "maintainers": [
+    {
+      "name": "Balerion Solutions SAS",
+      "email": "hi@balerion.io",
+      "url": "https://balerion.io"
+    }
+  ],
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "source": "./src/index.ts",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist/"
+  ],
+  "scripts": {
+    "build": "run -T npm-run-all clean --parallel build:code build:types",
+    "build:code": "run -T  rollup -c",
+    "build:types": "run -T tsc -p tsconfig.build.json --emitDeclarationOnly",
+    "clean": "run -T rimraf ./dist",
+    "lint": "run -T eslint .",
+    "test:unit": "run -T jest",
+    "test:unit:watch": "run -T jest --watch",
+    "watch": "run -T rollup -c -w"
+  },
+  "dependencies": {
+    "@balerion/utils": "5.11.1",
+    "form-data": "^4.0.0",
+    "mailgun.js": "10.2.1"
+  },
+  "devDependencies": {
+    "eslint-config-custom": "5.11.1",
+    "tsconfig": "5.11.1"
+  },
+  "engines": {
+    "node": ">=18.0.0 <=22.x.x",
+    "npm": ">=6.0.0"
+  }
+}
