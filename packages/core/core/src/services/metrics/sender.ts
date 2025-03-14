@@ -80,7 +80,7 @@ export default (balerion: Core.Balerion): Sender => {
         userProperties: userId ? { ...anonymousUserProperties, ...payload.userProperties } : {},
         groupProperties: {
           ...anonymousGroupProperties,
-          projectType: balerion.EE ? 'Enterprise' : 'Community',
+          projectType: 'Community',
           ...payload.groupProperties,
         },
       }),

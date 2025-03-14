@@ -4,8 +4,6 @@ import contentManager from '@balerion/content-manager/balerion-admin';
 import email from '@balerion/email/balerion-admin';
 import upload from '@balerion/upload/balerion-admin';
 import i18n from '@balerion/i18n/balerion-admin';
-import contentReleases from '@balerion/content-releases/balerion-admin';
-import reviewWorkflows from '@balerion/review-workflows/balerion-admin';
 
 const render = (mountNode: HTMLElement | null, { plugins, ...restArgs }: RenderAdminArgs) => {
   return renderAdmin(mountNode, {
@@ -15,9 +13,7 @@ const render = (mountNode: HTMLElement | null, { plugins, ...restArgs }: RenderA
       'content-type-builder': contentTypeBuilder,
       email,
       upload,
-      contentReleases,
       i18n,
-      reviewWorkflows,
       ...plugins,
     },
   });

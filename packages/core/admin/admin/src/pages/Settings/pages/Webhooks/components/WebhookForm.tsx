@@ -10,7 +10,6 @@ import { Form, FormHelpers } from '../../../../../components/Form';
 import { InputRenderer } from '../../../../../components/FormInputs/Renderer';
 import { Layouts } from '../../../../../components/Layouts/Layout';
 import { BackButton } from '../../../../../features/BackButton';
-import { useEnterprise } from '../../../../../hooks/useEnterprise';
 
 import { EventTableCE } from './EventsTable';
 import { HeadersInput } from './HeadersInput';
@@ -47,15 +46,7 @@ const WebhookForm = ({
 }: WebhookFormProps) => {
   const { formatMessage } = useIntl();
   const [showTriggerResponse, setShowTriggerResponse] = React.useState(false);
-  const EventTable = useEnterprise(
-    EventTableCE,
-    async () =>
-      (
-        await import(
-          '../../../../../../../ee/admin/src/pages/SettingsPage/pages/Webhooks/components/EventsTable'
-        )
-      ).EventsTableEE
-  );
+  const EventTable = EventTableCE;
 
   /**
    * Map the headers into a form that can be used within the formik form

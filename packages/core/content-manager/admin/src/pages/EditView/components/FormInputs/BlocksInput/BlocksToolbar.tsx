@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import * as Toolbar from '@radix-ui/react-toolbar';
 import { useElementOnScreen } from '@balerion/admin/balerion-admin';
+import * as Toolbar from '@radix-ui/react-toolbar';
 import {
   Flex,
   Tooltip,
@@ -541,6 +541,8 @@ const LinkButton = ({
 
   return (
     <ToolbarButton
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      /** @ts-ignore */
       icon={Link}
       name="link"
       label={label}

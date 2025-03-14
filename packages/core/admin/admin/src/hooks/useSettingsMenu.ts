@@ -10,8 +10,6 @@ import { useBalerionApp } from '../features/BalerionApp';
 import { selectAdminPermissions } from '../selectors';
 import { PermissionMap } from '../types/permissions';
 
-import { useEnterprise } from './useEnterprise';
-
 import type {
   BalerionAppSetting,
   BalerionAppSettingLink as IBalerionAppSettingLink,
@@ -80,22 +78,7 @@ const useSettingsMenu = (): {
    */
   const ceLinks = React.useMemo(() => SETTINGS_LINKS_CE(), []);
 
-  const { admin: adminLinks, global: globalLinks } = useEnterprise(
-    ceLinks,
-    async () => (await import('../../../ee/admin/src/constants')).SETTINGS_LINKS_EE(),
-    {
-      combine(ceLinks, eeLinks) {
-        return {
-          admin: [...eeLinks.admin, ...ceLinks.admin],
-          global: [...ceLinks.global, ...eeLinks.global],
-        };
-      },
-      defaultValue: {
-        admin: [],
-        global: [],
-      },
-    }
-  );
+  const { admin: adminLinks, global: globalLinks } = ceLinks;
 
   const addPermissions = React.useCallback(
     (link: SettingsMenuLink) => {

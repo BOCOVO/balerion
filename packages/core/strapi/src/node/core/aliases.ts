@@ -11,19 +11,16 @@ import { BalerionMonorepo } from './monorepo';
  */
 const devAliases: Record<string, string> = {
   '@balerion/admin/balerion-admin': './packages/core/admin/admin/src',
-  '@balerion/content-releases/balerion-admin': './packages/core/content-releases/admin/src',
   '@balerion/content-manager/balerion-admin': './packages/core/content-manager/admin/src',
   '@balerion/content-type-builder/balerion-admin': './packages/core/content-type-builder/admin/src',
   '@balerion/email/balerion-admin': './packages/core/email/admin/src',
   '@balerion/upload/balerion-admin': './packages/core/upload/admin/src',
-  '@balerion/plugin-cloud/balerion-admin': './packages/plugins/cloud/admin/src',
   '@balerion/plugin-color-picker/balerion-admin': './packages/plugins/color-picker/admin/src',
   '@balerion/plugin-documentation/balerion-admin': './packages/plugins/documentation/admin/src',
   '@balerion/plugin-graphql/balerion-admin': './packages/plugins/graphql/admin/src',
   '@balerion/i18n/balerion-admin': './packages/plugins/i18n/admin/src',
   '@balerion/plugin-sentry/balerion-admin': './packages/plugins/sentry/admin/src',
   '@balerion/plugin-users-permissions/balerion-admin': './packages/plugins/users-permissions/admin/src',
-  '@balerion/review-workflows/balerion-admin': './packages/core/review-workflows/admin/src',
 };
 
 const getMonorepoAliases = ({ monorepo }: { monorepo?: BalerionMonorepo }) => {

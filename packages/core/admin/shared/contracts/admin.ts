@@ -102,7 +102,6 @@ export declare namespace TelemetryProperties {
     data: {
       useTypescriptOnServer: boolean;
       useTypescriptOnAdmin: boolean;
-      isHostedOnBalerionCloud: boolean;
       numberOfAllContentTypes: number;
       numberOfComponents: number;
       numberOfDynamicZones: number;
@@ -129,90 +128,6 @@ export declare namespace Plugins {
 
   export interface Response {
     plugins: Plugin[];
-    error?: errors.ApplicationError;
-  }
-}
-
-/**
- * /providers/options - Single Sign On setting options
- */
-export declare namespace ProvidersOptions {
-  interface SSOProviderOptions {
-    autoRegister: boolean;
-    defaultRole: string | null;
-    ssoLockedRoles: string[] | null;
-  }
-  export interface Request {
-    body: SSOProviderOptions;
-    query: {};
-  }
-
-  export interface Response {
-    data: SSOProviderOptions;
-    error?: errors.ApplicationError | errors.ValidationError | errors.YupValidationError;
-  }
-}
-
-/**
- * /license-limit-information – get license limit information
- */
-
-export interface SSOFeature {
-  name: 'sso';
-}
-
-export interface AuditLogsFeature {
-  name: 'audit-logs';
-  options: {
-    retentionDays: number | null;
-  };
-}
-
-export interface ReviewWorkflowsFeature {
-  name: 'review-workflows';
-  options?: { numberOfWorkflows: number | null; stagesPerWorkflow: number | null };
-}
-
-export interface ContentReleasesFeature {
-  name: 'cms-content-releases';
-  options?: {
-    maximumReleases: number;
-  };
-}
-
-export interface ContentHistoryFeature {
-  name: 'cms-content-history';
-  options: {
-    retentionDays: number;
-  };
-}
-
-/**
- * TODO: this response needs refactoring because we're mixing the admin seat limit info with
- * regular EE feature info.
- */
-export declare namespace GetLicenseLimitInformation {
-  export interface Request {
-    body: {};
-    query: {};
-  }
-  export interface Response {
-    data: {
-      currentActiveUserCount: number;
-      enforcementUserCount: number;
-      features: (
-        | SSOFeature
-        | AuditLogsFeature
-        | ReviewWorkflowsFeature
-        | ContentReleasesFeature
-        | ContentHistoryFeature
-      )[];
-      isHostedOnBalerionCloud: boolean;
-      licenseLimitStatus: unknown;
-      permittedSeats: number;
-      shouldNotify: boolean;
-      shouldStopCreate: boolean;
-    };
     error?: errors.ApplicationError;
   }
 }

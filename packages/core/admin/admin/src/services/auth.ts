@@ -1,4 +1,3 @@
-import { ProvidersOptions } from '../../../shared/contracts/admin';
 import {
   type RenewToken,
   type Login,
@@ -168,30 +167,6 @@ const authService = adminApi
           method: 'GET',
         }),
       }),
-      getProviderOptions: builder.query<ProvidersOptions.Response['data'], void>({
-        query: () => ({
-          url: '/admin/providers/options',
-          method: 'GET',
-        }),
-        transformResponse(res: ProvidersOptions.Response) {
-          return res.data;
-        },
-        providesTags: ['ProvidersOptions'],
-      }),
-      updateProviderOptions: builder.mutation<
-        ProvidersOptions.Response['data'],
-        ProvidersOptions.Request['body']
-      >({
-        query: (body) => ({
-          url: '/admin/providers/options',
-          method: 'PUT',
-          data: body,
-        }),
-        transformResponse(res: ProvidersOptions.Response) {
-          return res.data;
-        },
-        invalidatesTags: ['ProvidersOptions'],
-      }),
     }),
     overrideExisting: false,
   });
@@ -212,8 +187,6 @@ const {
   useGetMyPermissionsQuery,
   useIsSSOLockedQuery,
   useGetProvidersQuery,
-  useGetProviderOptionsQuery,
-  useUpdateProviderOptionsMutation,
 } = authService;
 
 export {
@@ -232,6 +205,4 @@ export {
   useGetMyPermissionsQuery,
   useIsSSOLockedQuery,
   useGetProvidersQuery,
-  useGetProviderOptionsQuery,
-  useUpdateProviderOptionsMutation,
 };

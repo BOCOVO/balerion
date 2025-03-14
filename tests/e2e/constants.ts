@@ -21,16 +21,6 @@ export const ALLOWED_CONTENT_TYPES = [
    */
   'plugin::i18n.locale',
   /**
-   * CONTENT RELEASES
-   */
-  'plugin::content-releases.release',
-  'plugin::content-releases.release-action',
-  /**
-   * REVIEW WORKFLOWS
-   */
-  'plugin::review-workflows.workflow-stage',
-  'plugin::review-workflows.workflow',
-  /**
    * UPLOADS
    */
   'plugin::upload.file',

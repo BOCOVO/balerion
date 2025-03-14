@@ -17,7 +17,6 @@ import { Form, type FormHelpers } from '../../../../../components/Form';
 import { InputRenderer } from '../../../../../components/FormInputs/Renderer';
 import { useNotification } from '../../../../../features/Notifications';
 import { useAPIErrorHandler } from '../../../../../hooks/useAPIErrorHandler';
-import { useEnterprise } from '../../../../../hooks/useEnterprise';
 import { useCreateUserMutation } from '../../../../../services/users';
 import { FormLayoutInputProps } from '../../../../../types/forms';
 import { isBaseQueryError } from '../../../../../utils/baseQuery';
@@ -43,51 +42,11 @@ const ModalForm = ({ onToggle }: ModalFormProps) => {
     _unstableFormatAPIError: formatAPIError,
     _unstableFormatValidationErrors: formatValidationErrors,
   } = useAPIErrorHandler();
-  const roleLayout = useEnterprise<FormLayout, FormLayout, FormLayout>(
-    ROLE_LAYOUT,
-    async () =>
-      (
-        await import(
-          '../../../../../../../ee/admin/src/pages/SettingsPage/pages/Users/components/ModalForm'
-        )
-      ).ROLE_LAYOUT,
-    {
-      combine(ceRoles, eeRoles) {
-        return [...ceRoles, ...eeRoles];
-      },
+  const roleLayout = ROLE_LAYOUT;
 
-      defaultValue: [],
-    }
-  );
+  const initialValues = FORM_INITIAL_VALUES;
 
-  const initialValues = useEnterprise<InitialData>(
-    FORM_INITIAL_VALUES,
-    async () =>
-      (
-        await import(
-          '../../../../../../../ee/admin/src/pages/SettingsPage/pages/Users/components/ModalForm'
-        )
-      ).FORM_INITIAL_VALUES,
-    {
-      combine(ceValues, eeValues) {
-        return {
-          ...ceValues,
-          ...eeValues,
-        };
-      },
-
-      defaultValue: FORM_INITIAL_VALUES,
-    }
-  );
-  const MagicLink = useEnterprise(
-    MagicLinkCE,
-    async () =>
-      (
-        await import(
-          '../../../../../../../ee/admin/src/pages/SettingsPage/pages/Users/components/MagicLinkEE'
-        )
-      ).MagicLinkEE
-  );
+  const MagicLink = MagicLinkCE;
 
   const [createUser] = useCreateUserMutation();
 

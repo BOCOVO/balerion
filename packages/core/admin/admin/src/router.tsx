@@ -2,9 +2,6 @@
 
 import { RouteObject } from 'react-router-dom';
 
-import { getEERoutes as getBaseEERoutes } from '../../ee/admin/src/constants';
-import { getEERoutes as getSettingsEERoutes } from '../../ee/admin/src/pages/SettingsPage/constants';
-
 import { AuthPage } from './pages/Auth/AuthPage';
 import { ROUTES_CE } from './pages/Settings/constants';
 
@@ -22,8 +19,6 @@ const getImmutableRoutes = (): RouteObject[] => [
       };
     },
   },
-  // this needs to go before auth/:authType because otherwise it won't match the route
-  ...getBaseEERoutes(),
   {
     path: 'auth/:authType',
     element: <AuthPage />,
@@ -34,10 +29,10 @@ const getInitialRoutes = (): RouteObject[] => [
   {
     index: true,
     lazy: async () => {
-      const { HomePage } = await import('./pages/Home/HomePage');
+      const { HomePageCE } = await import('./pages/Home/HomePage');
 
       return {
-        Component: HomePage,
+        Component: HomePageCE,
       };
     },
   },
@@ -93,7 +88,7 @@ const getInitialRoutes = (): RouteObject[] => [
       //     ),
       //   }))
       // ),
-      ...[...getSettingsEERoutes(), ...ROUTES_CE].filter(
+      ...[...ROUTES_CE].filter(
         (route, index, refArray) => refArray.findIndex((obj) => obj.path === route.path) === index
       ),
     ],

@@ -1,10 +1,9 @@
 import { Navigate, useLocation, useMatch } from 'react-router-dom';
 
 import { useAuth } from '../../features/Auth';
-import { useEnterprise } from '../../hooks/useEnterprise';
 import { useInitQuery } from '../../services/admin';
 
-import { Login as LoginCE } from './components/Login';
+import { Login } from './components/Login';
 import { FORMS, FormDictionary } from './constants';
 
 /* -------------------------------------------------------------------------------------------------
@@ -17,31 +16,14 @@ const AuthPage = () => {
   const authType = match?.params.authType;
   const { data } = useInitQuery();
   const { hasAdmin } = data ?? {};
-  const Login = useEnterprise(
-    LoginCE,
-    async () => (await import('../../../../ee/admin/src/pages/AuthPage/components/Login')).LoginEE
-  );
-  const forms = useEnterprise<FormDictionary, Partial<FormDictionary>>(
-    FORMS,
-    async () => (await import('../../../../ee/admin/src/pages/AuthPage/constants')).FORMS,
-    {
-      combine(ceForms, eeForms) {
-        return {
-          ...ceForms,
-          ...eeForms,
-        };
-      },
-      defaultValue: FORMS,
-    }
-  );
 
   const { token } = useAuth('AuthPage', (auth) => auth);
 
-  if (!authType || !forms) {
+  if (!authType || !FORMS) {
     return <Navigate to="/" />;
   }
 
-  const Component = forms[authType as keyof FormDictionary];
+  const Component = FORMS[authType as keyof FormDictionary];
 
   // Redirect the user to the login page if
   // the endpoint does not exists

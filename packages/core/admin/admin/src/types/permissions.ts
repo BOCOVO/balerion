@@ -8,8 +8,6 @@ type SettingsPermissions =
   | 'users'
   | 'webhooks';
 
-type EESettingsPermissions = 'auditLogs' | 'review-workflows' | 'sso' | 'releases';
-
 type CRUDPermissions = {
   main?: Permission[];
   read: Permission[];
@@ -26,10 +24,9 @@ interface PermissionMap {
     componentsConfigurations: Permission[];
   };
   marketplace: Pick<CRUDPermissions, 'main' | 'read'>;
-  settings: Record<SettingsPermissions, CRUDPermissions> &
-    Partial<Record<EESettingsPermissions, CRUDPermissions>> & {
-      plugins: Pick<CRUDPermissions, 'read' | 'main'>;
-    };
+  settings: Record<SettingsPermissions, CRUDPermissions> & {
+    plugins: Pick<CRUDPermissions, 'read' | 'main'>;
+  };
 }
 
 export { PermissionMap };

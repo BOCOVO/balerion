@@ -109,6 +109,8 @@ const AutoReloadOverlayBlockerProvider = ({ children }: AutoReloadOverlayBlocker
 
   return (
     <AutoReloadOverlayBlockerContext.Provider value={autoReloadValue}>
+      {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
+      {/* @ts-expect-error */}
       <Blocker
         displayedIcon={displayedIcon}
         isOpen={isOpen}

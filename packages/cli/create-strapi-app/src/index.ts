@@ -148,7 +148,6 @@ async function run(args: string[]): Promise<void> {
     dependencies: {
       '@balerion/balerion': version,
       '@balerion/plugin-users-permissions': version,
-      '@balerion/plugin-cloud': version,
       // third party
       react: '^18.0.0',
       'react-dom': '^18.0.0',

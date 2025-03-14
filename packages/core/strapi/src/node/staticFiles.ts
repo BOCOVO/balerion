@@ -53,7 +53,11 @@ interface GetDocumentHTMLArgs extends Pick<BuildContext, 'logger'> {
  * to load a user's Document component?
  */
 const getDocumentHTML = ({ logger, props = {} }: GetDocumentHTMLArgs) => {
-  const result = renderToStaticMarkup(createElement(DefaultDocument, props));
+  const result = renderToStaticMarkup(
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    createElement(DefaultDocument, props)
+  );
   logger.debug('Rendered the HTML');
 
   return outdent`<!DOCTYPE html>${result}`;

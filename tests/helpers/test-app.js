@@ -41,7 +41,6 @@ const generateTestApp = async ({ appPath, database, template, link = false }) =>
       '@balerion/plugin-users-permissions': pkg.version,
       '@balerion/plugin-graphql': pkg.version,
       '@balerion/plugin-documentation': pkg.version,
-      '@balerion/plugin-cloud': pkg.version,
       react: '18.2.0',
       'react-dom': '18.2.0',
       'react-router-dom': '^6.0.0',

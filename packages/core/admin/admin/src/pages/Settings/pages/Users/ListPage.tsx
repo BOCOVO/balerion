@@ -17,12 +17,11 @@ import { Table } from '../../../../components/Table';
 import { useTypedSelector } from '../../../../core/store/hooks';
 import { useNotification } from '../../../../features/Notifications';
 import { useAPIErrorHandler } from '../../../../hooks/useAPIErrorHandler';
-import { useEnterprise } from '../../../../hooks/useEnterprise';
 import { useRBAC } from '../../../../hooks/useRBAC';
 import { useAdminUsers, useDeleteManyUsersMutation } from '../../../../services/users';
 import { getDisplayName } from '../../../../utils/users';
 
-import { CreateActionCE } from './components/CreateActionCE';
+import { CreateActionCE as CreateAction } from './components/CreateActionCE';
 import { ModalForm } from './components/NewUserForm';
 
 /* -------------------------------------------------------------------------------------------------
@@ -45,16 +44,6 @@ const ListPageCE = () => {
   const { data, isError, isLoading } = useAdminUsers(qs.parse(search, { ignoreQueryPrefix: true }));
 
   const { pagination, users = [] } = data ?? {};
-
-  const CreateAction = useEnterprise(
-    CreateActionCE,
-    async () =>
-      (
-        await import(
-          '../../../../../../ee/admin/src/pages/SettingsPage/pages/Users/components/CreateActionEE'
-        )
-      ).CreateActionEE
-  );
 
   const headers = TABLE_HEADERS.map((header) => ({
     ...header,
@@ -132,7 +121,7 @@ const ListPageCE = () => {
         title={title}
         subtitle={formatMessage({
           id: 'Settings.permissions.users.listview.header.subtitle',
-          defaultMessage: 'All the users who have access to the Balerion admin panel',
+          defaultMessage: 'All the users who have access to the Strapi admin panel',
         })}
       />
       <Layouts.Action
@@ -337,20 +326,7 @@ const FILTERS = [
 
 // component which determines whether this page should render the CE or EE page
 const ListPage = () => {
-  const UsersListPage = useEnterprise(
-    ListPageCE,
-    async () =>
-      // eslint-disable-next-line import/no-cycle
-      (await import('../../../../../../ee/admin/src/pages/SettingsPage/pages/Users/ListPage'))
-        .UserListPageEE
-  );
-
-  // block rendering until the EE component is fully loaded
-  if (!UsersListPage) {
-    return null;
-  }
-
-  return <UsersListPage />;
+  return <ListPageCE />;
 };
 
 /* -------------------------------------------------------------------------------------------------

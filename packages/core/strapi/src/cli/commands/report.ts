@@ -24,7 +24,7 @@ Environment: ${app.config.environment}
 OS: ${process.platform}-${process.arch}
 Balerion Version: ${app.config.info.balerion}
 Node/Yarn Version: ${process.env.npm_config_user_agent}
-Edition: ${app.EE ? 'Enterprise' : 'Community'}
+Edition: ${'Community'}
 Database: ${app?.config?.database?.connection?.client ?? 'unknown'}`;
 
   if (config.reportUUID) {

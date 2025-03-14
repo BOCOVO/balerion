@@ -2,7 +2,6 @@ import { Feather } from '@strapi/icons';
 
 import { PLUGIN_ID } from './constants/plugin';
 import { ContentManagerPlugin } from './content-manager';
-import { historyAdmin } from './history';
 import { reducer } from './modules/reducers';
 import { previewAdmin } from './preview';
 import { routes } from './router';
@@ -46,9 +45,6 @@ export default {
     app.registerPlugin(cm.config);
   },
   bootstrap(app: any) {
-    if (typeof historyAdmin.bootstrap === 'function') {
-      historyAdmin.bootstrap(app);
-    }
     if (typeof previewAdmin.bootstrap === 'function') {
       previewAdmin.bootstrap(app);
     }

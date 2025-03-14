@@ -27,13 +27,6 @@
       "require": "./dist/admin/index.js",
       "default": "./dist/admin/index.js"
     },
-    "./balerion-admin/ee": {
-      "types": "./dist/admin/src/ee.d.ts",
-      "source": "./admin/src/ee.ts",
-      "import": "./dist/admin/ee.mjs",
-      "require": "./dist/admin/ee.js",
-      "default": "./dist/admin/ee.js"
-    },
     "./balerion-admin/test": {
       "types": "./dist/admin/tests/index.d.ts",
       "source": "./admin/tests/index.ts",

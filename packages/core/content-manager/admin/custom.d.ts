@@ -33,7 +33,6 @@ interface BrowserBalerion {
   features: {
     SSO: 'sso';
     AUDIT_LOGS: 'audit-logs';
-    REVIEW_WORKFLOWS: 'review-workflows';
     isEnabled: (featureName?: string) => boolean;
   };
   flags: {

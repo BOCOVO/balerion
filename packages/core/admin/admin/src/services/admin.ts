@@ -5,7 +5,6 @@ import {
   type GetProjectSettings,
   type UpdateProjectSettings,
   type Plugins,
-  type GetLicenseLimitInformation,
 } from '../../../shared/contracts/admin';
 import { prefixFileUrlWithBackendUrl } from '../utils/urls';
 
@@ -99,14 +98,7 @@ const admin = adminApi
           url: '/admin/plugins',
           method: 'GET',
         }),
-      }),
-      getLicenseLimits: builder.query<GetLicenseLimitInformation.Response, void>({
-        query: () => ({
-          url: '/admin/license-limit-information',
-          method: 'GET',
-        }),
-        providesTags: ['LicenseLimits'],
-      }),
+      })
     }),
     overrideExisting: false,
   });
@@ -118,7 +110,6 @@ const {
   useProjectSettingsQuery,
   useUpdateProjectSettingsMutation,
   useGetPluginsQuery,
-  useGetLicenseLimitsQuery,
 } = admin;
 
 export {
@@ -128,7 +119,6 @@ export {
   useProjectSettingsQuery,
   useUpdateProjectSettingsMutation,
   useGetPluginsQuery,
-  useGetLicenseLimitsQuery,
 };
 
 export type { ConfigurationLogo };

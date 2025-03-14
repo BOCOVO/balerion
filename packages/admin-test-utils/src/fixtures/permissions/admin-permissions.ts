@@ -1442,46 +1442,6 @@ const admin = [
     conditions: [],
   },
   {
-    id: 347,
-    action: 'admin::review-workflows.stage.transition',
-    actionParameters: {
-      from: 1,
-    },
-    subject: null,
-    properties: {},
-    conditions: [],
-  },
-  {
-    id: 350,
-    action: 'admin::review-workflows.stage.transition',
-    actionParameters: {
-      from: 2,
-    },
-    subject: null,
-    properties: {},
-    conditions: [],
-  },
-  {
-    id: 353,
-    action: 'admin::review-workflows.stage.transition',
-    actionParameters: {
-      from: 3,
-    },
-    subject: null,
-    properties: {},
-    conditions: [],
-  },
-  {
-    id: 356,
-    action: 'admin::review-workflows.stage.transition',
-    actionParameters: {
-      from: 4,
-    },
-    subject: null,
-    properties: {},
-    conditions: [],
-  },
-  {
     id: 359,
     action: 'admin::provider-login.read',
     actionParameters: {},
@@ -1500,38 +1460,6 @@ const admin = [
   {
     id: 361,
     action: 'admin::audit-logs.read',
-    actionParameters: {},
-    subject: null,
-    properties: {},
-    conditions: [],
-  },
-  {
-    id: 362,
-    action: 'admin::review-workflows.create',
-    actionParameters: {},
-    subject: null,
-    properties: {},
-    conditions: [],
-  },
-  {
-    id: 363,
-    action: 'admin::review-workflows.read',
-    actionParameters: {},
-    subject: null,
-    properties: {},
-    conditions: [],
-  },
-  {
-    id: 364,
-    action: 'admin::review-workflows.update',
-    actionParameters: {},
-    subject: null,
-    properties: {},
-    conditions: [],
-  },
-  {
-    id: 365,
-    action: 'admin::review-workflows.delete',
     actionParameters: {},
     subject: null,
     properties: {},
@@ -1845,38 +1773,6 @@ const app = {
       update: [
         {
           action: 'admin::audit-logs.update',
-          subject: null,
-        },
-      ],
-    },
-    'review-workflows': {
-      main: [
-        {
-          action: 'admin::review-workflows.read',
-          subject: null,
-        },
-      ],
-      read: [
-        {
-          action: 'admin::review-workflows.read',
-          subject: null,
-        },
-      ],
-      create: [
-        {
-          action: 'admin::review-workflows.create',
-          subject: null,
-        },
-      ],
-      delete: [
-        {
-          action: 'admin::review-workflows.delete',
-          subject: null,
-        },
-      ],
-      update: [
-        {
-          action: 'admin::review-workflows.update',
           subject: null,
         },
       ],

@@ -39,8 +39,6 @@ const INTERNAL_PLUGINS = [
   '@balerion/email',
   '@balerion/upload',
   '@balerion/i18n',
-  '@balerion/content-releases',
-  '@balerion/review-workflows',
 ];
 
 const isBalerionPlugin = (info: PluginInfo) => get('balerion.kind', info) === 'plugin';

@@ -33,7 +33,7 @@ describe('Role CRUD End to End', () => {
     });
     sortedData.conditions = sortedData.conditions.sort();
 
-    const hasSSO = balerion.ee.features.isEnabled('sso');
+    const hasSSO = false;
 
     if (hasSSO) {
       expect(sortedData).toMatchInlineSnapshot(`
@@ -178,48 +178,6 @@ describe('Role CRUD End to End', () => {
                 "displayName": "Configure view",
                 "plugin": "content-manager",
                 "subCategory": "single types",
-              },
-              {
-                "action": "plugin::content-releases.create",
-                "displayName": "Create",
-                "plugin": "content-releases",
-                "subCategory": "general",
-              },
-              {
-                "action": "plugin::content-releases.create-action",
-                "displayName": "Add an entry to a release",
-                "plugin": "content-releases",
-                "subCategory": "general",
-              },
-              {
-                "action": "plugin::content-releases.delete",
-                "displayName": "Delete",
-                "plugin": "content-releases",
-                "subCategory": "general",
-              },
-              {
-                "action": "plugin::content-releases.delete-action",
-                "displayName": "Remove an entry from a release",
-                "plugin": "content-releases",
-                "subCategory": "general",
-              },
-              {
-                "action": "plugin::content-releases.publish",
-                "displayName": "Publish",
-                "plugin": "content-releases",
-                "subCategory": "general",
-              },
-              {
-                "action": "plugin::content-releases.read",
-                "displayName": "Read",
-                "plugin": "content-releases",
-                "subCategory": "general",
-              },
-              {
-                "action": "plugin::content-releases.update",
-                "displayName": "Edit",
-                "plugin": "content-releases",
-                "subCategory": "general",
               },
               {
                 "action": "plugin::content-type-builder.read",
@@ -416,30 +374,6 @@ describe('Role CRUD End to End', () => {
                 "subCategory": "options",
               },
               {
-                "action": "admin::review-workflows.create",
-                "category": "review workflows",
-                "displayName": "Create",
-                "subCategory": "options",
-              },
-              {
-                "action": "admin::review-workflows.delete",
-                "category": "review workflows",
-                "displayName": "Delete",
-                "subCategory": "options",
-              },
-              {
-                "action": "admin::review-workflows.read",
-                "category": "review workflows",
-                "displayName": "Read",
-                "subCategory": "options",
-              },
-              {
-                "action": "admin::review-workflows.update",
-                "category": "review workflows",
-                "displayName": "Update",
-                "subCategory": "options",
-              },
-              {
                 "action": "admin::roles.create",
                 "category": "users and roles",
                 "displayName": "Create",
@@ -546,18 +480,6 @@ describe('Role CRUD End to End', () => {
                 "category": "webhooks",
                 "displayName": "Update",
                 "subCategory": "general",
-              },
-              {
-                "action": "plugin::content-releases.settings.read",
-                "category": "content releases",
-                "displayName": "Read",
-                "subCategory": "options",
-              },
-              {
-                "action": "plugin::content-releases.settings.update",
-                "category": "content releases",
-                "displayName": "Edit",
-                "subCategory": "options",
               },
               {
                 "action": "plugin::documentation.settings.read",

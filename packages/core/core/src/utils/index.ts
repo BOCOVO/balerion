@@ -1,7 +1,6 @@
 export { openBrowser } from './open-browser';
 export { isInitialized } from './is-initialized';
 export { getDirs } from '../configuration/get-dirs';
-export { ee } from './ee';
 export { createUpdateNotifier } from './update-notifier';
 export { createBalerionFetch, Fetch } from './fetch';
 export { convertCustomFieldType } from './convert-custom-field-type';

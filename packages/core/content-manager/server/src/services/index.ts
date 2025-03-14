@@ -7,7 +7,6 @@ import permissionChecker from './permission-checker';
 import permission from './permission';
 import populateBuilder from './populate-builder';
 import uid from './uid';
-import history from '../history';
 import preview from '../preview';
 import documentMetadata from './document-metadata';
 import documentManager from './document-manager';
@@ -24,6 +23,5 @@ export default {
   permission,
   'populate-builder': populateBuilder,
   uid,
-  ...(history.services ? history.services : {}),
   ...(preview.services ? preview.services : {}),
 };

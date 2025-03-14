@@ -9,7 +9,6 @@
     "deploy": "balerion deploy"
   },
   "dependencies": {
-    "@balerion/plugin-cloud": "0.0.0",
     "@balerion/plugin-graphql": "0.0.0",
     "@balerion/plugin-users-permissions": "0.0.0",
     "@balerion/balerion": "0.0.0",

@@ -6,7 +6,6 @@ import { map, values, sumBy, pipe, flatMap, propEq } from 'lodash/fp';
 import _ from 'lodash';
 import { exists } from 'fs-extra';
 import '@balerion/types';
-import { env } from '@balerion/utils';
 import tsUtils from '@balerion/typescript-utils';
 import {
   validateUpdateProjectSettings,
@@ -101,7 +100,6 @@ export default {
     const useTypescriptOnAdmin = await isUsingTypeScript(
       path.join(balerion.dirs.app.root, 'src', 'admin')
     );
-    const isHostedOnBalerionCloud = env('BALERION_HOSTING', null) === 'balerion.cloud';
 
     const numberOfAllContentTypes = _.size(balerion.contentTypes);
     const numberOfComponents = _.size(balerion.components);
@@ -119,7 +117,6 @@ export default {
       data: {
         useTypescriptOnServer,
         useTypescriptOnAdmin,
-        isHostedOnBalerionCloud,
         numberOfAllContentTypes, // TODO: V5: This event should be renamed numberOfContentTypes in V5 as the name is already taken to describe the number of content types using i18n.
         numberOfComponents,
         numberOfDynamicZones: getNumberOfDynamicZones(),
@@ -134,7 +131,7 @@ export default {
     const dependencies = balerion.config.get('info.dependencies', {});
     const projectId = balerion.config.get('uuid', null);
     const nodeVersion = process.version;
-    const communityEdition = !balerion.EE;
+    const communityEdition = true;
     const useYarn: boolean = await exists(path.join(process.cwd(), 'yarn.lock'));
 
     return {
@@ -156,15 +153,7 @@ export default {
 
     // List of core plugins that are always enabled,
     // and so it's not necessary to display them in the plugins list
-    const CORE_PLUGINS = [
-      'content-manager',
-      'content-type-builder',
-      'email',
-      'upload',
-      'i18n',
-      'content-releases',
-      'review-workflows',
-    ];
+    const CORE_PLUGINS = ['content-manager', 'content-type-builder', 'email', 'upload', 'i18n'];
 
     const plugins = Object.entries(enabledPlugins)
       .filter(([key]: any) => !CORE_PLUGINS.includes(key))

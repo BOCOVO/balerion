@@ -10,14 +10,13 @@ import { Page } from '../../../../components/PageHelpers';
 import { useAppInfo } from '../../../../features/AppInfo';
 import { useConfiguration } from '../../../../features/Configuration';
 import { useTracking } from '../../../../features/Tracking';
-import { useEnterprise } from '../../../../hooks/useEnterprise';
 import { useRBAC } from '../../../../hooks/useRBAC';
 import { selectAdminPermissions } from '../../../../selectors';
 
 import { LogoInput, LogoInputProps } from './components/LogoInput';
 import { DIMENSION, SIZE } from './utils/constants';
 
-const AdminSeatInfoCE = () => null;
+const AdminSeatInfo = () => null;
 
 /* -------------------------------------------------------------------------------------------------
  * ApplicationInfoPage
@@ -36,18 +35,11 @@ const ApplicationInfoPage = () => {
     (state) => state.latestBalerionReleaseTag
   );
   const nodeVersion = useAppInfo('ApplicationInfoPage', (state) => state.nodeVersion);
-  const shouldUpdateBalerion = useAppInfo('ApplicationInfoPage', (state) => state.shouldUpdateBalerion);
-  const balerionVersion = useAppInfo('ApplicationInfoPage', (state) => state.balerionVersion);
-
-  const AdminSeatInfo = useEnterprise(
-    AdminSeatInfoCE,
-    async () =>
-      (
-        await import(
-          '../../../../../../ee/admin/src/pages/SettingsPage/pages/ApplicationInfoPage/components/AdminSeatInfo'
-        )
-      ).AdminSeatInfoEE
+  const shouldUpdateBalerion = useAppInfo(
+    'ApplicationInfoPage',
+    (state) => state.shouldUpdateBalerion
   );
+  const balerionVersion = useAppInfo('ApplicationInfoPage', (state) => state.balerionVersion);
 
   const {
     allowedActions: { canRead, canUpdate },
@@ -192,7 +184,10 @@ const ApplicationInfoPage = () => {
                           { communityEdition }
                         )}
                       </Typography>
-                      <Link href="https://balerion.io/pricing-self-hosted" endIcon={<ExternalLink />}>
+                      <Link
+                        href="https://balerion.io/pricing-self-hosted"
+                        endIcon={<ExternalLink />}
+                      >
                         {formatMessage({
                           id: 'Settings.application.link-pricing',
                           defaultMessage: 'See all pricing plans',

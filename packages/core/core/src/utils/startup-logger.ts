@@ -25,7 +25,7 @@ export const createStartupLogger = (app: Core.Balerion) => {
         [chalk.blue('Environment'), app.config.environment],
         [chalk.blue('Process PID'), process.pid],
         [chalk.blue('Version'), `${app.config.info.balerion} (node ${process.version})`],
-        [chalk.blue('Edition'), app.EE ? 'Enterprise' : 'Community'],
+        [chalk.blue('Edition'), 'Community'],
         [chalk.blue('Database'), dbInfo?.client],
         [chalk.blue('Database name'), dbInfo?.displayName]
       );

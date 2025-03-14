@@ -6,7 +6,10 @@ import { createBalerion, compileBalerion } from '@balerion/core';
 import ora from 'ora';
 import { merge } from 'lodash/fp';
 import type { Core } from '@balerion/types';
-import { engine as engineDataTransfer, balerion as balerionDataTransfer } from '@balerion/data-transfer';
+import {
+  engine as engineDataTransfer,
+  balerion as balerionDataTransfer,
+} from '@balerion/data-transfer';
 
 import { readableBytes, exitWith } from './helpers';
 import { getParseListWithChoices, parseInteger, confirmMessage } from './commander';
@@ -116,8 +119,6 @@ const DEFAULT_IGNORED_CONTENT_TYPES = [
   'admin::transfer-token',
   'admin::transfer-token-permission',
   'admin::audit-log',
-  'plugin::content-releases.release',
-  'plugin::content-releases.release-action',
 ];
 
 const abortTransfer = async ({
@@ -350,19 +351,9 @@ const getDiffHandler = (
     Object.entries(context.diffs).forEach(([uid, diffs]) => {
       for (const diff of diffs) {
         const path = [uid].concat(diff.path).join('.');
-        const endPath = diff.path[diff.path.length - 1];
 
-        // Catch known features
-        if (
-          uid === 'plugin::review-workflows.workflow' ||
-          uid === 'plugin::review-workflows.workflow-stage' ||
-          endPath?.startsWith('balerion_stage') ||
-          endPath?.startsWith('balerion_assignee')
-        ) {
-          workflowsStatus = diff.kind;
-        }
         // handle generic cases
-        else if (diff.kind === 'added') {
+        if (diff.kind === 'added') {
           engine.reportWarning(chalk.red(`${chalk.bold(path)} does not exist on source`), source);
         } else if (diff.kind === 'deleted') {
           engine.reportWarning(

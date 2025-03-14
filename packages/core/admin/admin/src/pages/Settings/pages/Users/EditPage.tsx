@@ -16,7 +16,6 @@ import { useTypedSelector } from '../../../../core/store/hooks';
 import { BackButton } from '../../../../features/BackButton';
 import { useNotification } from '../../../../features/Notifications';
 import { useAPIErrorHandler } from '../../../../hooks/useAPIErrorHandler';
-import { useEnterprise } from '../../../../hooks/useEnterprise';
 import { useRBAC } from '../../../../hooks/useRBAC';
 import { selectAdminPermissions } from '../../../../selectors';
 import { useAdminUsers, useUpdateUserMutation } from '../../../../services/users';
@@ -24,7 +23,7 @@ import { isBaseQueryError } from '../../../../utils/baseQuery';
 import { translatedErrors } from '../../../../utils/translatedErrors';
 import { getDisplayName } from '../../../../utils/users';
 
-import { MagicLinkCE } from './components/MagicLinkCE';
+import { MagicLinkCE as MagicLink } from './components/MagicLinkCE';
 import { SelectRoles } from './components/SelectRoles';
 import { COMMON_USER_SCHEMA } from './utils/validation';
 
@@ -55,15 +54,6 @@ const EditPage = () => {
   const id = match?.params?.id ?? '';
   const navigate = useNavigate();
   const { toggleNotification } = useNotification();
-  const MagicLink = useEnterprise(
-    MagicLinkCE,
-    async () =>
-      (
-        await import(
-          '../../../../../../ee/admin/src/pages/SettingsPage/pages/Users/components/MagicLinkEE'
-        )
-      ).MagicLinkEE
-  );
   const {
     _unstableFormatAPIError: formatAPIError,
     _unstableFormatValidationErrors: formatValidationErrors,

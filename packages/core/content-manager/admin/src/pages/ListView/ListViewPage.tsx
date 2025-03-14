@@ -152,7 +152,7 @@ const ListViewPage = () => {
       /**
        * When the header label is a string, it is an attribute on the current content-type:
        * Use the attribute name value to compute the translation.
-       * Otherwise, it should be a  translation object coming from a plugin that injects into the table (ie i18n, content-releases, review-workflows):
+       * Otherwise, it should be a  translation object coming from a plugin that injects into the table (ie i18n):
        * Use the translation object as is.
        */
       const translation =

@@ -2719,7 +2719,6 @@ __metadata:
     "@balerion/admin": "npm:0.0.0"
     "@balerion/cloud-cli": "npm:0.0.0"
     "@balerion/content-manager": "npm:0.0.0"
-    "@balerion/content-releases": "npm:0.0.0"
     "@balerion/content-type-builder": "npm:0.0.0"
     "@balerion/core": "npm:0.0.0"
     "@balerion/data-transfer": "npm:0.0.0"
@@ -2729,7 +2728,6 @@ __metadata:
     "@balerion/i18n": "npm:0.0.0"
     "@balerion/logger": "npm:0.0.0"
     "@balerion/permissions": "npm:0.0.0"
-    "@balerion/review-workflows": "npm:0.0.0"
     "@balerion/types": "npm:0.0.0"
     "@balerion/typescript-utils": "npm:0.0.0"
     "@balerion/upload": "npm:0.0.0"
@@ -2892,50 +2890,6 @@ __metadata:
     yup: "npm:0.32.9"
   peerDependencies:
     "@balerion/admin": 0.0.0
-    react: ^17.0.0 || ^18.0.0
-    react-dom: ^17.0.0 || ^18.0.0
-    react-router-dom: ^6.0.0
-    styled-components: ^6.0.0
-  languageName: unknown
-  linkType: soft
-
-"@balerion/content-releases@npm:0.0.0, @balerion/content-releases@workspace:packages/core/content-releases":
-  version: 0.0.0-use.local
-  resolution: "@balerion/content-releases@workspace:packages/core/content-releases"
-  dependencies:
-    "@balerion/admin": "npm:0.0.0"
-    "@balerion/admin-test-utils": "npm:0.0.0"
-    "@balerion/content-manager": "npm:0.0.0"
-    "@balerion/database": "npm:0.0.0"
-    "@balerion/types": "npm:0.0.0"
-    "@balerion/utils": "npm:0.0.0"
-    "@reduxjs/toolkit": "npm:1.9.7"
-    "@strapi/design-system": "npm:2.0.0-rc.18"
-    "@strapi/icons": "npm:2.0.0-rc.18"
-    "@testing-library/dom": "npm:10.1.0"
-    "@testing-library/react": "npm:15.0.7"
-    "@testing-library/user-event": "npm:14.5.2"
-    "@types/koa": "npm:2.13.4"
-    date-fns: "npm:2.30.0"
-    date-fns-tz: "npm:2.0.1"
-    formik: "npm:2.4.5"
-    koa: "npm:2.15.4"
-    lodash: "npm:4.17.21"
-    msw: "npm:1.3.0"
-    node-schedule: "npm:2.1.1"
-    qs: "npm:6.11.1"
-    react: "npm:18.3.1"
-    react-dom: "npm:18.3.1"
-    react-intl: "npm:6.6.2"
-    react-query: "npm:3.39.3"
-    react-redux: "npm:8.1.3"
-    react-router-dom: "npm:6.22.3"
-    styled-components: "npm:6.1.8"
-    typescript: "npm:5.4.4"
-    yup: "npm:0.32.9"
-  peerDependencies:
-    "@balerion/admin": 0.0.0
-    "@balerion/content-manager": 0.0.0
     react: ^17.0.0 || ^18.0.0
     react-dom: ^17.0.0 || ^18.0.0
     react-router-dom: ^6.0.0
@@ -3240,31 +3194,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@balerion/plugin-cloud@workspace:packages/plugins/cloud":
-  version: 0.0.0-use.local
-  resolution: "@balerion/plugin-cloud@workspace:packages/plugins/cloud"
-  dependencies:
-    "@balerion/balerion": "npm:0.0.0"
-    "@strapi/design-system": "npm:2.0.0-rc.18"
-    "@strapi/icons": "npm:2.0.0-rc.18"
-    "@strapi/sdk-plugin": "npm:^5.2.0"
-    eslint-config-custom: "npm:5.11.1"
-    react: "npm:18.3.1"
-    react-dom: "npm:18.3.1"
-    react-intl: "npm:6.6.2"
-    react-router-dom: "npm:6.22.3"
-    styled-components: "npm:6.1.8"
-    tsconfig: "npm:5.11.1"
-    typescript: "npm:5.4.4"
-  peerDependencies:
-    "@balerion/balerion": 0.0.0
-    react: ^17.0.0 || ^18.0.0
-    react-dom: ^17.0.0 || ^18.0.0
-    react-router-dom: ^6.0.0
-    styled-components: ^6.0.0
-  languageName: unknown
-  linkType: soft
-
 "@balerion/plugin-color-picker@workspace:*, @balerion/plugin-color-picker@workspace:packages/plugins/color-picker":
   version: 0.0.0-use.local
   resolution: "@balerion/plugin-color-picker@workspace:packages/plugins/color-picker"
@@ -3546,40 +3475,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@balerion/review-workflows@npm:0.0.0, @balerion/review-workflows@workspace:packages/core/review-workflows":
-  version: 0.0.0-use.local
-  resolution: "@balerion/review-workflows@workspace:packages/core/review-workflows"
-  dependencies:
-    "@balerion/admin": "npm:0.0.0"
-    "@balerion/content-manager": "npm:0.0.0"
-    "@balerion/types": "npm:0.0.0"
-    "@balerion/utils": "npm:0.0.0"
-    "@reduxjs/toolkit": "npm:1.9.7"
-    "@strapi/design-system": "npm:2.0.0-rc.18"
-    "@strapi/icons": "npm:2.0.0-rc.18"
-    "@testing-library/react": "npm:15.0.7"
-    fractional-indexing: "npm:3.2.0"
-    msw: "npm:1.3.0"
-    react: "npm:18.3.1"
-    react-dnd: "npm:16.0.1"
-    react-dnd-html5-backend: "npm:16.0.1"
-    react-dom: "npm:18.3.1"
-    react-helmet: "npm:^6.1.0"
-    react-intl: "npm:6.6.2"
-    react-redux: "npm:8.1.3"
-    react-router-dom: "npm:6.22.3"
-    styled-components: "npm:6.1.8"
-    yup: "npm:0.32.9"
-  peerDependencies:
-    "@balerion/admin": 0.0.0
-    "@balerion/content-manager": 0.0.0
-    react: ^17.0.0 || ^18.0.0
-    react-dom: ^17.0.0 || ^18.0.0
-    react-router-dom: ^6.0.0
-    styled-components: ^6.0.0
-  languageName: unknown
-  linkType: soft
-
 "@balerion/types@npm:0.0.0, @balerion/types@workspace:packages/core/types":
   version: 0.0.0-use.local
   resolution: "@balerion/types@workspace:packages/core/types"
@@ -3854,13 +3749,6 @@ __metadata:
   version: 1.5.0
   resolution: "@colors/colors@npm:1.5.0"
   checksum: 10c0/eb42729851adca56d19a08e48d5a1e95efd2a32c55ae0323de8119052be0510d4b7a1611f2abcbf28c044a6c11e6b7d38f99fccdad7429300c37a8ea5fb95b44
-  languageName: node
-  linkType: hard
-
-"@colors/colors@npm:1.6.0":
-  version: 1.6.0
-  resolution: "@colors/colors@npm:1.6.0"
-  checksum: 10c0/9328a0778a5b0db243af54455b79a69e3fb21122d6c15ef9e9fcc94881d8d17352d8b2b2590f9bdd46fac5c2d6c1636dcfc14358a20c70e22daf89e1a759b629
   languageName: node
   linkType: hard
 
@@ -15789,15 +15677,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"date-fns-tz@npm:2.0.1":
-  version: 2.0.1
-  resolution: "date-fns-tz@npm:2.0.1"
-  peerDependencies:
-    date-fns: 2.x
-  checksum: 10c0/f860dda9e3d38bc99dc325c678cafb94b3a18c12b1fea0e2f4e451396ea6c4cacced683066c669a67ec380f64fdda83aa4c414a207029b647faa2b76b2a5c6e3
-  languageName: node
-  linkType: hard
-
 "date-fns@npm:2.30.0, date-fns@npm:^2.30.0":
   version: 2.30.0
   resolution: "date-fns@npm:2.30.0"
@@ -23156,17 +23035,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"logform@npm:^2.4.0, logform@npm:^2.7.0":
-  version: 2.7.0
-  resolution: "logform@npm:2.7.0"
+"logform@npm:2.5.1":
+  version: 2.5.1
+  resolution: "logform@npm:2.5.1"
   dependencies:
-    "@colors/colors": "npm:1.6.0"
+    "@colors/colors": "npm:1.5.0"
     "@types/triple-beam": "npm:^1.3.2"
     fecha: "npm:^4.2.0"
     ms: "npm:^2.1.1"
     safe-stable-stringify: "npm:^2.3.1"
     triple-beam: "npm:^1.3.0"
-  checksum: 10c0/4789b4b37413c731d1835734cb799240d31b865afde6b7b3e06051d6a4127bfda9e88c99cfbf296d084a315ccbed2647796e6a56b66e725bcb268c586f57558f
+  checksum: 10c0/d11c36b4c42063abc816fda2fd149cff9969a9943d42afd95ddd1426804980b4e92e24f2ea6a9916fd490224b1c97578734a37d3b40ce3a9418495ce52e8ef23
   languageName: node
   linkType: hard
 
